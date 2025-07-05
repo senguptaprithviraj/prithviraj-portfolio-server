@@ -7,9 +7,15 @@ const contactRoute = require("./route/contactRoute");
 const app = express();
 
 app.use(express.json());
+
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://prithviraj-portfolio-client.vercel.app",
+];
+
 app.use(
   cors({
-    origin: "http://localhost:3000", // or "*" for all origins
+    origin: allowedOrigins,
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
